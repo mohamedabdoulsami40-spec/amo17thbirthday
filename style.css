@@ -1,0 +1,1048 @@
+/*==================================================
+GOOGLE STYLE RESET
+==================================================*/
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    width:100%;
+    height:100vh;
+
+    overflow:hidden;
+
+    background:#09090b;
+
+    color:#ffffff;
+
+    font-family:"Manrope",sans-serif;
+
+}
+
+
+/*==================================================
+VARIABLES
+==================================================*/
+
+:root{
+
+    --bg:#09090b;
+
+    --pink:#f8bcd8;
+
+    --pink-light:#ffd7ea;
+
+    --white:#ffffff;
+
+    --gray:#d4d4d4;
+
+    --glass:rgba(255,255,255,.08);
+
+}
+
+
+/*==================================================
+BACKGROUND
+==================================================*/
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-2;
+
+    background:
+    radial-gradient(circle at top,#43243d 0%,transparent 40%),
+    radial-gradient(circle at bottom,#221320 0%,transparent 45%),
+    var(--bg);
+
+    animation:breathe 8s ease infinite;
+
+}
+
+@keyframes breathe{
+
+    50%{
+
+        transform:scale(1.04);
+
+        filter:brightness(1.15);
+
+    }
+
+}
+
+
+/*==================================================
+ETOILES
+==================================================*/
+
+.stars{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+}
+
+.star{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:0 0 12px white;
+
+    animation:blink linear infinite;
+
+}
+
+@keyframes blink{
+
+    50%{
+
+        opacity:.2;
+
+        transform:scale(.4);
+
+    }
+
+}
+
+
+/*==================================================
+LUMIERE
+==================================================*/
+
+.cursor-light{
+
+    position:fixed;
+
+    width:340px;
+
+    height:340px;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    transform:translate(-50%,-50%);
+
+    background:radial-gradient(circle,
+    rgba(248,188,216,.18),
+    transparent 70%);
+
+    transition:.12s linear;
+
+    z-index:-1;
+
+}
+
+
+/*==================================================
+HERO
+==================================================*/
+
+.hero{
+
+    width:100%;
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:30px;
+
+}
+
+.content{
+
+    max-width:720px;
+
+}
+
+.little{
+
+    display:block;
+
+    color:var(--pink);
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    font-size:.85rem;
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    animation:show .8s forwards;
+
+}
+
+.hero h1{
+
+    margin-top:20px;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(3rem,8vw,6rem);
+
+    font-weight:600;
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    animation:show 7.0s .4s forwards;
+
+}
+
+.hero h1 span{
+
+    color:var(--pink-light);
+
+}
+
+.hero p{
+
+    margin-top:25px;
+
+    color:var(--gray);
+
+    font-size:1.15rem;
+
+    line-height:1.8;
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    animation:show 1.5s 1.6s forwards;
+
+}
+
+
+/* Animation des éléments */
+
+.little{
+
+    animation:show 1.5s forwards;
+
+}
+
+
+.hero h1{
+
+    animation:show 1.5s .8s forwards;
+
+}
+
+
+button{
+
+    animation:show 1.5s 2.4s forwards;
+
+}
+
+
+
+.hero{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:5;
+
+}
+
+
+/*==================================================
+BOUTON
+==================================================*/
+
+button{
+
+    margin-top:50px;
+
+    padding:18px 42px;
+
+    border:none;
+
+    border-radius:999px;
+
+    cursor:pointer;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:var(--glass);
+
+    color:white;
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    font-size:1rem;
+
+    transition:.35s;
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    animation:
+    show .8s 1.4s forwards,
+    pulse 3s infinite;
+
+}
+
+button:hover{
+
+    transform:translateY(-4px);
+
+    background:var(--pink);
+
+    color:#111;
+
+    box-shadow:0 0 45px rgba(248,188,216,.35);
+
+}
+
+button span{
+
+    margin-left:10px;
+
+}
+
+button::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-150%;
+
+    width:100%;
+
+    height:100%;
+
+    background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.45),
+    transparent);
+
+}
+
+button:hover::before{
+
+    animation:shine .8s;
+
+}
+
+
+
+/*==================================================
+ANIMATIONS
+==================================================*/
+
+@keyframes show{
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes pulse{
+
+    0%{
+
+        transform:translateY(20px) scale(1);
+
+    }
+
+    50%{
+
+        transform:translateY(20px) scale(1.03);
+
+    }
+
+    100%{
+
+        transform:translateY(20px) scale(1);
+
+    }
+
+}
+
+@keyframes shine{
+
+    to{
+
+        left:150%;
+
+    }
+
+}
+
+.hide{
+
+    animation:fadeOut .9s forwards;
+
+}
+
+@keyframes fadeOut{
+
+    to{
+
+        opacity:0;
+
+        transform:scale(1.04);
+
+        filter:blur(20px);
+
+    }
+
+}
+
+
+/*==================================================
+SCENE 2
+==================================================*/
+
+.scene2{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:5;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:30px;
+
+    text-align:center;
+
+    background:transparent;
+
+    animation:sceneFade .8s ease;
+
+}
+
+@keyframes sceneFade{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+.story{
+
+    width:min(720px,95%);
+
+    min-height:260px;
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:60px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.04);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+
+    0 30px 80px rgba(0,0,0,.35);
+
+}
+
+.text{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    opacity:0;
+
+    transform:translateY(25px);
+
+    transition:
+
+opacity .9s,
+
+transform .9s,
+
+filter .9s;
+
+    font-size:clamp(1.35rem,3vw,2rem);
+
+    line-height:1.8;
+
+    color:#e5e5e5;
+
+    padding-inline:15px;
+    
+    filter:blur(8px);
+
+    
+
+}
+
+.text.active{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+    filter:blur(0);
+
+}
+
+.highlight{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(2.8rem,7vw,4.6rem);
+
+    color:var(--pink);
+
+    line-height:1.3;
+
+}
+
+.story h1{
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+    transition:1.2s ease;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(3rem,8vw,5.5rem);
+
+    text-shadow:0 0 40px rgba(248,188,216,.35);
+
+}
+
+.story h1 span{
+
+    display:block;
+
+    margin-top:10px;
+
+    color:var(--pink);
+
+}
+
+
+
+
+.story::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+
+    height:350px;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(circle,
+
+    rgba(248,188,216,.18),
+
+    transparent 70%);
+
+    filter:blur(50px);
+
+    z-index:-1;
+
+}
+
+
+/*==================================================
+RESPONSIVE
+==================================================*/
+
+@media(max-width:768px){
+
+    .hero{
+
+        padding:24px;
+
+    }
+
+    .hero p{
+
+        font-size:1rem;
+
+        line-height:1.7;
+
+    }
+
+    button{
+
+        width:100%;
+
+        max-width:300px;
+
+    }
+
+    .cursor-light{
+
+        width:220px;
+
+        height:220px;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .little{
+
+        letter-spacing:3px;
+
+        font-size:.75rem;
+
+    }
+
+    .story{
+
+        min-height:260px;
+
+    }
+
+    .highlight{
+
+        font-size:2.5rem;
+
+    }
+
+}
+
+
+
+
+/*==================================================
+ANNIVERSAIRE
+==================================================*/
+
+.birthday{
+
+    color:#fff;
+
+    text-shadow:
+    0 0 10px rgba(255,255,255,.8),
+    0 0 25px rgba(248,188,216,.8),
+    0 0 45px rgba(248,188,216,.7);
+
+}
+
+
+
+    50%{
+
+        transform:translate(-50%,-50%) scale(1.04);
+
+        text-shadow:
+            0 0 20px white,
+            0 0 40px #ffd4eb,
+            0 0 80px #f8bcd8;
+
+    }
+
+    100%{
+
+        transform:translate(-50%,-50%) scale(1);
+
+        text-shadow:
+            0 0 10px rgba(255,255,255,.6),
+            0 0 20px rgba(248,188,216,.4);
+
+    }
+
+}
+
+
+/*==================================================
+FLASH DOUX
+==================================================*/
+
+.background.flash{
+
+    animation:none;
+
+    filter:brightness(1.45);
+
+    transition:1.2s;
+
+}
+
+
+/*==================================================
+PARTICULES
+==================================================*/
+
+.particle{
+
+    position:fixed;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:999;
+
+    opacity:1;
+
+    animation:fallParticle linear forwards;
+
+}
+
+.particle::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:50%;
+
+    background:inherit;
+
+    box-shadow:
+        0 0 10px currentColor,
+        0 0 20px currentColor;
+
+}
+
+@keyframes fallParticle{
+
+    0%{
+
+        transform:
+        translateY(-40px)
+        scale(.3)
+        rotate(0deg);
+
+        opacity:0;
+
+    }
+
+    10%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:
+        translateY(110vh)
+        translateX(var(--drift))
+        rotate(540deg)
+        scale(1);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/*==================================================
+SIGNATURE
+==================================================*/
+
+/*==================================================
+SIGNATURE FINALE
+==================================================*/
+
+.signature{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    opacity:0;
+
+    z-index:1000;
+
+    padding:30px;
+
+    transition:opacity 2.5s ease;
+
+}
+
+
+.signature.show{
+
+    opacity:1;
+
+}
+
+
+.signature .fin{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(3rem,8vw,5rem);
+
+    color:white;
+
+    margin-bottom:35px;
+
+    text-shadow:
+
+    0 0 20px rgba(255,255,255,.7),
+
+    0 0 50px rgba(248,188,216,.5);
+
+}
+
+
+.signature-text{
+
+    position:static;
+
+    transform:none;
+
+    opacity:1;
+
+    font-size:clamp(1.2rem,3vw,1.6rem);
+
+    line-height:1.8;
+
+    color:#e5e5e5;
+
+}
+
+
+.signature .name{
+
+    margin-top:40px;
+
+    color:#f8bcd8;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(1.5rem,4vw,2rem);
+
+    letter-spacing:3px;
+
+    text-shadow:
+
+    0 0 20px rgba(248,188,216,.5);
+
+}
+
+
+
+
+
+
+
+@media(max-width:600px){
+
+    .story{
+
+        min-height:300px;
+
+        padding:20px;
+
+    }
+
+
+    .highlight{
+
+        font-size:1.8rem;
+
+        line-height:1.35;
+
+    }
+
+
+    .birthday{
+
+        font-size:1.7rem;
+
+    }
+
+}
+
+
+
+
+/*==================================================
+AJUSTEMENT TEXTES IMPORTANTS MOBILE
+==================================================*/
+
+.story{
+
+    width:min(720px,95%);
+
+    max-width:700px;
+
+    padding:40px 25px;
+
+}
+
+
+.text{
+
+    width:100%;
+
+    max-width:650px;
+
+    word-wrap:break-word;
+
+}
+
+
+.highlight{
+
+    font-size:clamp(1.8rem,5vw,4rem);
+
+    line-height:1.3;
+
+}
+
+
+/* Message anniversaire */
+.birthday{
+
+    font-size:clamp(1.7rem,5vw,3.5rem);
+
+    padding:0 15px;
+
+}
+
+
+/* Mobile */
+@media(max-width:600px){
+
+    .story{
+
+        padding:0 15px;
+
+    }
+
+
+    .text{
+
+        font-size:1.25rem;
+
+        line-height:1.6;
+
+    }
+
+
+    .highlight{
+
+        font-size:2rem;
+
+    }
+
+
+    .birthday{
+
+        font-size:1.9rem;
+
+    }
+
+}
